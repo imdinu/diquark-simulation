@@ -1,0 +1,71 @@
+! 1) Settings used in the main program.
+Main:numberOfEvents = 100000         ! number of events to generate
+Main:timesAllowErrors = 10000          ! how many aborts before run stops
+
+! 2) Settings related to output in init(), next() and stat().
+Init:showChangedSettings = on      ! list changed settings
+Init:showChangedParticleData = off ! list changed particle data
+Next:numberCount = 1000            ! print message every n events
+Next:numberShowInfo = 10            ! print event information n times
+Next:numberShowProcess = 10         ! print process record n times
+Next:numberShowEvent = 10           ! print event record n times
+
+! 3) Beam parameter settings. Values below agree with default ones.
+Beams:idA = 2212                   ! first beam, p = 2212, pbar = -2212
+Beams:idB = 2212                   ! second beam, p = 2212, pbar = -2212
+Beams:eCM = 13600.                 ! CM energy of collision
+#PhaseSpace:pTHatMin = 8000
+PhaseSpace:mHatMin = 8000
+
+! 4) Settings for the hard-process generation.
+
+HiggsSM:gg2Hbbbar = on    ! Scattering g g → H^0 b bbar. Code 912.
+
+! 5) Switch on/off the key event generation steps.
+PartonLevel:MPI = on              ! no multiparton interactions
+PartonLevel:ISR = on              ! no initial-state radiation
+PartonLevel:FSR = on              ! no final-state radiation
+HadronLevel:Hadronize = on        ! no hadronization
+HadronLevel:Decay = on           ! no decays
+
+! 6) Other settings. Can be expanded as desired.
+#Tune:preferLHAPDF = off           ! use internal PDFs when LHAPDF not linked
+Tune:pp = 6                        ! use Tune 4Cx
+ParticleDecays:limitTau0 = on      ! set long-lived particle stable ...
+ParticleDecays:tau0Max = 10        ! ... if c*tau0 > 10 mm
+
+7: onMode = off		   ! all decay modes off for b
+7: onIfAny = -24 2		   ! only decaying to quarks
+7: onIfAny = -24 4		   ! only decaying to quarks
+7: onIfAny = -24 6		   ! only decaying to quarks
+7: onIfAny = -24 8		   ! only decaying to quarks
+
+23: onMode = off                   ! all decay modes off for Z
+23: onIfAny = 1 -1                 ! only decaying to quarks
+23: onIfAny = 2 -2                 ! only decaying to quarks
+23: onIfAny = 3 -3                 ! only decaying to quarks
+23: onIfAny = 4 -4                 ! only decaying to quarks
+23: onIfAny = 5 -5                 ! only decaying to quarks
+
+24: onMode = off		   ! all decay modes off for W
+24: onIfAny = -1 2		   ! only decaying to quarks
+24: onIfAny = -1 4		   ! only decaying to quarks
+24: onIfAny = -3 2		   ! only decaying to quarks
+24: onIfAny = -3 4		   ! only decaying to quarks
+24: onIfAny = -5 2		   ! only decaying to quarks
+24: onIfAny = -5 4		   ! only decaying to quarks
+
+25: onMode = off		   ! all decay modes off for h0
+25: onIfAny = -1 1		   ! only decaying to quarks
+25: onIfAny = -2 2		   ! only decaying to quarks
+25: onIfAny = -3 3		   ! only decaying to quarks
+25: onIfAny = -4 4		   ! only decaying to quarks
+25: onIfAny = -5 5		   ! only decaying to quarks
+25: onIfAny = -6 6		   ! only decaying to quarks
+25: onIfAny = 24 -24        ! allow decay into W bosons
+25: onIfAny = 23 23        ! allow decay into Z bosons
+
+#Stat:showProcessLevel = on 
+#Stat:showPartonLevel  = on 
+#Stat:showErrors = on 
+  
