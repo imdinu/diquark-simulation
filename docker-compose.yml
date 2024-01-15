@@ -1,162 +1,162 @@
 version: '3.7'
 
 x-simulation: &simulation-defaults
-  image: pythia-delphes:8.310_3.5.0
+  image: ioandinu/pythia-delphes:8.310_3.5.0 #change image name to ioandinu/pythia-delphes:8.310_3.5.0
   volumes:
-    - ./output-data:/home/output
+    - ./TEST-output-data-13000-6500:/home/output
   command: ["/home/run_simulation.sh"]
 
 x-simulation-environment: &simulation-environment
-    NUMBER_OF_EVENTS: "100"
-    ECM: "13600"
-    MHATMIN: "8000"
+    NUMBER_OF_EVENTS: "10"
+    ECM: "13000"
+    MHATMIN: "6500"
 
 services:
-  background_01:
+  01_gg_bbbar:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "01_gg_bbbar.cmnd"
 
-  background_02:
+  02_gg_ccbar:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "02_gg_ccbar.cmnd"
 
-  background_03:
+  03_gg_gg:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "03_gg_gg.cmnd"
 
-  background_04:
+  04_qqbar_gg:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "04_qqbar_gg.cmnd"
 
-  background_05:
+  05_gg_qqbar:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "05_gg_qqbar.cmnd"
 
-  background_06:
+  06_qg_qg:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "06_qg_qg.cmnd"
 
-  background_07:
+  07_qqbar_bbbar:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "07_qqbar_bbbar.cmnd"
 
-  background_08:
+  08_qqbar_ccbar:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "08_qqbar_ccbar.cmnd"
 
-  background_09:
+  09_qq_qq:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "09_qq_qq.cmnd"
 
-  background_10:
+  10_qqbar_qqbarNew:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "10_qqbar_qqbarNew.cmnd"
 
-  background_11:
+  11_qg_Wj_hadronic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "11_qg_Wj_hadronic.cmnd"
 
-  background_12:
+  12_qg_Wj_leptonic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "12_qg_Wj_leptonic.cmnd"
 
-  background_13:
+  13_qqbar_Wj_hadronic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "13_qqbar_Wj_hadronic.cmnd"
 
-  background_14:
+  14_qqbar_Wj_leptonic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "14_qqbar_Wj_leptonic.cmnd"
 
-  background_15:
+  15_qq_hbb_hadronic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "15_qq_hbb_hadronic.cmnd"
 
-  background_16:
+  16_qq_hbb_leptonic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "16_qq_hbb_leptonic.cmnd"
 
-  background_17:
+  17_gg_hbb_hadronic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "17_gg_hbb_hadronic.cmnd"
 
-  background_18:
+  18_gg_hbb_leptonic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "18_gg_hbb_leptonic.cmnd"
 
-  background_19:
+  19_gg_ttbar_bkg_hadronic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "19_gg_ttbar_bkg_hadronic.cmnd"
 
-  background_20:
+  20_gg_ttbar_bkg_leptonic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "20_gg_ttbar_bkg_leptonic.cmnd"
 
-  background_21:
+  21_qq_ttbar_bkg_hadronic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "21_qq_ttbar_bkg_hadronic.cmnd"
 
-  background_22:
+  22_qq_ttbar_bkg_leptonic:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "22_qq_ttbar_bkg_leptonic.cmnd"
 
-  background_23:
+  23_ff_ZW_bkg:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "23_ff_ZW_bkg.cmnd"
 
-  background_24:
+  24_ff_WW_bkg:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
       CARD: "24_ff_WW_bkg.cmnd"
 
-  background_25:
+  25_ff_gmZgmZ_bkg:
     <<: *simulation-defaults
     environment:
       <<: *simulation-environment
