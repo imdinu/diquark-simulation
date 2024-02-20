@@ -19,7 +19,7 @@ PhaseSpace:mHatMin = 8000
 
 ! 4) Settings for the hard-process generation.
 
-Top:gg2ttbar = on    ! g g → t tbar. Code 601 
+HiggsSM:ffbar2H = on
 
 ! 5) Switch on/off the key event generation steps.
 PartonLevel:MPI = on              ! no multiparton interactions
@@ -34,16 +34,30 @@ Tune:pp = 6                        ! use Tune 4Cx
 ParticleDecays:limitTau0 = on      ! set long-lived particle stable ...
 ParticleDecays:tau0Max = 10        ! ... if c*tau0 > 10 mm
 
-6: onMode = off		   ! all decay modes off for t
-6: onIfAny = 24 1		   ! only decaying to quarks
-6: onIfAny = 24 3		   ! only decaying to quarks
-6: onIfAny = 24 5		   ! only decaying to quarks
-6: onIfAny = 37 5		   ! only decaying to quarks
+25: onMode = off		   ! all decay modes off for h0
+25: onIfAny = -1 1		   ! only decaying to quarks
+25: onIfAny = -2 2		   ! only decaying to quarks
+25: onIfAny = -3 3		   ! only decaying to quarks
+25: onIfAny = -4 4		   ! only decaying to quarks
+25: onIfAny = -5 5		   ! only decaying to quarks
+25: onIfAny = -6 6		   ! only decaying to quarks
+25: onIfAny = 24 -24        ! allow decay into W bosons
+25: onIfAny = 23 23        ! allow decay into Z bosons
+
+23: onMode = off                   ! all decay modes off for Z
+23: onIfAny = 1 -1                 ! only decaying to quarks
+23: onIfAny = 2 -2                 ! only decaying to quarks
+23: onIfAny = 3 -3                 ! only decaying to quarks
+23: onIfAny = 4 -4                 ! only decaying to quarks
+23: onIfAny = 5 -5                 ! only decaying to quarks
 
 24: onMode = off		   ! all decay modes off for W
-24: onIfAny = -11 12		   ! only decaying to leptons
-24: onIfAny = -13 14		   ! only decaying to leptons
-24: onIfAny = -15 16		   ! only decaying to leptons
+24: onIfAny = -1 2		   ! only decaying to quarks
+24: onIfAny = -1 4		   ! only decaying to quarks
+24: onIfAny = -3 2		   ! only decaying to quarks
+24: onIfAny = -3 4		   ! only decaying to quarks
+24: onIfAny = -5 2		   ! only decaying to quarks
+24: onIfAny = -5 4		   ! only decaying to quarks
 
 #Stat:showProcessLevel = on 
 #Stat:showPartonLevel  = on 

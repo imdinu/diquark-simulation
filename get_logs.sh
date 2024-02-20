@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_DIR="LOGS_TEST"
+LOG_DIR="15-logs-13000-8000"
 
 mkdir $LOG_DIR
 
