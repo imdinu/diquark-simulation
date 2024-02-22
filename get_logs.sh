@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_DIR="logs"
+LOG_DIR="ATLAS_logs_130_80"
 
 mkdir $LOG_DIR
 

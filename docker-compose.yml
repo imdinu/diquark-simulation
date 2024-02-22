@@ -7,7 +7,7 @@ x-simulation: &simulation-defaults
   command: ["/home/run_simulation.sh"]
 
 x-simulation-environment: &simulation-environment
-    NUMBER_OF_EVENTS: "100000"
+    NUMBER_OF_EVENTS: "10"
     ECM: "13000"
     MHATMIN: "8000"
 
@@ -102,17 +102,17 @@ services:
       <<: *simulation-environment
       CARD: "15_qqbar_Hg.cmnd"
 
-  16_ff_H:
-    <<: *simulation-defaults
-    environment:
-      <<: *simulation-environment
-      CARD: "16_ff_H.cmnd"
+  # 16_ff_H:
+  #   <<: *simulation-defaults
+  #   environment:
+  #     <<: *simulation-environment
+  #     CARD: "16_ff_H.cmnd"
 
-  17_gg_H:
-    <<: *simulation-defaults
-    environment:
-      <<: *simulation-environment
-      CARD: "17_gg_H.cmnd"
+  # 17_gg_H:
+  #   <<: *simulation-defaults
+  #   environment:
+  #     <<: *simulation-environment
+  #     CARD: "17_gg_H.cmnd"
 
   18_ff_HZ:
     <<: *simulation-defaults

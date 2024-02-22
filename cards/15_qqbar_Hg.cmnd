@@ -19,7 +19,7 @@ PhaseSpace:mHatMin = 8000
 
 ! 4) Settings for the hard-process generation.
 
-HiggsSM:qqbar2Hg(l:t)
+HiggsSM:qqbar2Hg(l:t) = on
 
 ! 5) Switch on/off the key event generation steps.
 PartonLevel:MPI = on              ! no multiparton interactions
