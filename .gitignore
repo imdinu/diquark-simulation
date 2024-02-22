@@ -1,4 +1,7 @@
 logs/
-*.log
 output-data/
+ATLAS_BKG/
+*.log
 *.root
+*.txt
+.DS_Store

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_DIR="LOGS_TEST"
+LOG_DIR="logs"
 
 mkdir $LOG_DIR
 
