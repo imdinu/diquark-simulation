@@ -5,27 +5,26 @@ USER_NAME := "ioandinu"
 # Build the Docker image
 build:
 	DOCKER_BUILDKIT=1 docker build --target=runtime . -t $(IMAGE_NAME):$(IMAGE_TAG)
-	docker compose create
 .PHONY: build
 
 # Push the Docker image to Docker Hub
 push:
     # Tag with the specific version
 	docker tag $(IMAGE_NAME):$(IMAGE_TAG) $(USER_NAME)/$(IMAGE_NAME):$(IMAGE_TAG)
+	docker push $(USER_NAME)/$(IMAGE_NAME):$(IMAGE_TAG)
     # Tag with the 'latest' tag
 	docker tag $(IMAGE_NAME):$(IMAGE_TAG) $(USER_NAME)/$(IMAGE_NAME):latest
-    # Push both tags
-	docker push $(USER_NAME)/$(IMAGE_NAME):$(IMAGE_TAG)
 	docker push $(USER_NAME)/$(IMAGE_NAME):latest
 .PHONY: push
 
 # Pull the Docker image from Docker Hub
 pull:
 	docker pull ${USER_NAME}/$(IMAGE_NAME):latest
+	docker pull ${USER_NAME}/$(IMAGE_NAME):$(IMAGE_TAG)
 .PHONY: pull
 
 # Run the full simulation
-run: pull
+run: build
 	docker compose up
 .PHONY: run
 
