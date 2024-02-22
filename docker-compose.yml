@@ -1,7 +1,7 @@
 version: '3.7'
 
 x-simulation: &simulation-defaults
-  image: ioandinu/pythia-delphes:8.310_3.5.0 #change image name to ioandinu/pythia-delphes:8.310_3.5.0
+  image: pythia-delphes:8.310_3.5.0
   volumes:
     - ./data_130_80:/home/output
   command: ["/home/run_simulation.sh"]
