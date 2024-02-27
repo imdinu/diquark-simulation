@@ -3,11 +3,11 @@ version: '3.7'
 x-simulation: &simulation-defaults
   image: pythia-delphes:8.310_3.5.0
   volumes:
-    - ./data_130_80:/home/output
+    - ./data_130_80:/home/ATLAS_output_130_80
   command: ["/home/run_simulation.sh"]
 
 x-simulation-environment: &simulation-environment
-    NUMBER_OF_EVENTS: "10"
+    NUMBER_OF_EVENTS: "100000"
     ECM: "13000"
     MHATMIN: "8000"
 
@@ -96,11 +96,11 @@ services:
       <<: *simulation-environment
       CARD: "14_qg_Hq.cmnd"
 
-  15_qqbar_Hg:
-    <<: *simulation-defaults
-    environment:
-      <<: *simulation-environment
-      CARD: "15_qqbar_Hg.cmnd"
+  # 15_qqbar_Hg:
+  #   <<: *simulation-defaults
+  #   environment:
+  #     <<: *simulation-environment
+  #     CARD: "15_qqbar_Hg.cmnd"
 
   # 16_ff_H:
   #   <<: *simulation-defaults
