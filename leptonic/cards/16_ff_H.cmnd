@@ -19,7 +19,7 @@ PhaseSpace:mHatMin = 8000
 
 ! 4) Settings for the hard-process generation.
 
-HiggsSM:ff2Hff(t:WW) = on    
+HiggsSM:ffbar2H = on
 
 ! 5) Switch on/off the key event generation steps.
 PartonLevel:MPI = on              ! no multiparton interactions
@@ -34,29 +34,29 @@ Tune:pp = 6                        ! use Tune 4Cx
 ParticleDecays:limitTau0 = on      ! set long-lived particle stable ...
 ParticleDecays:tau0Max = 10        ! ... if c*tau0 > 10 mm
 
-#7: onMode = off		   ! all decay modes off for b
-#7: onIfAny = -24 2		   ! only decaying to quarks
-#7: onIfAny = -24 4		   ! only decaying to quarks
-#7: onIfAny = -24 6		   ! only decaying to quarks
-#7: onIfAny = -24 8		   ! only decaying to quarks
+7: onMode = off		   ! all decay modes off for b
+7: onIfAny = -24 2		   ! only decaying to quarks
+7: onIfAny = -24 4		   ! only decaying to quarks
+7: onIfAny = -24 6		   ! only decaying to quarks
+7: onIfAny = -24 8		   ! only decaying to quarks
 
-#24: onMode = off		   ! all decay modes off for W
-#24: onIfAny = -11 12		   ! only decaying to leptons&neutrinos
-#24: onIfAny = -13 14		   ! only decaying to leptons&neutrinos
-#24: onIfAny = -15 16		   ! only decaying to leptons&neutrinos
+24: onMode = off		   ! all decay modes off for W
+24: onIfAny = -11 12		   ! only decaying to leptons&neutrinos
+24: onIfAny = -13 14		   ! only decaying to leptons&neutrinos
+24: onIfAny = -15 16		   ! only decaying to leptons&neutrinos
 
-#6: onMode = off		   ! all decay modes off for t
-#6: onIfAny = -24 1		   ! only decaying to quarks
-#6: onIfAny = -24 3		   ! only decaying to quarks
-#6: onIfAny = -24 5		   ! only decaying to quarks
+6: onMode = off		   ! all decay modes off for t
+6: onIfAny = -24 1		   ! only decaying to quarks
+6: onIfAny = -24 3		   ! only decaying to quarks
+6: onIfAny = -24 5		   ! only decaying to quarks
 
-#23: onMode = off                   ! all decay modes off for Z
-#23: onIfAny = 11 -11                 ! only decaying to leptons&neutrinos
-#23: onIfAny = 12 -12                 ! only decaying to leptons&neutrinos
-#23: onIfAny = 13 -13                 ! only decaying to leptons&neutrinos
-#23: onIfAny = 14 -14                 ! only decaying to leptons&neutrinos
-#23: onIfAny = 15 -15                 ! only decaying to leptons&neutrinos
-#23: onIfAny = 16 -16                 ! only decaying to leptons&neutrinos
+23: onMode = off                   ! all decay modes off for Z
+23: onIfAny = 11 -11                 ! only decaying to leptons&neutrinos
+23: onIfAny = 12 -12                 ! only decaying to leptons&neutrinos
+23: onIfAny = 13 -13                 ! only decaying to leptons&neutrinos
+23: onIfAny = 14 -14                 ! only decaying to leptons&neutrinos
+23: onIfAny = 15 -15                 ! only decaying to leptons&neutrinos
+23: onIfAny = 16 -16                 ! only decaying to leptons&neutrinos
 
 #Stat:showProcessLevel = on 
 #Stat:showPartonLevel  = on 
