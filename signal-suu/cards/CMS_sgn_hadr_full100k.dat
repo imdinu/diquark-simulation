@@ -1,0 +1,19 @@
+import model diquarkVquark2023_UFO/ 
+generate p p > suu, (suu > chi chi, (chi > w+ b, w+ > j j), (chi > w+ b, w+ > j j))
+output /data/analysis/iduminic/CMS_Full_Hadr_100k_136TeV_7TeV
+launch--name=run_1k
+shower=Pythia8
+detector=Delphes
+set nevents 100000
+#set LHC 13
+set MSuu 7000
+set ebeam1 6800
+set ebeam2 6800
+#set bwcutoff 10
+set cut_decays F
+set pdfwgt F
+set use_syst F
+set fixed_ren_scale F
+set fixed_fac_scale F
+/data/analysis/iduminic/CMS_Full_Hadr_100k_136TeV_7TeV/Cards/delphes_card_CMS.dat
+
