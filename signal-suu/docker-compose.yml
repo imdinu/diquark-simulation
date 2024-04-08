@@ -1,0 +1,82 @@
+version: '3.7'
+
+x-simulation: &simulation-defaults
+  image: pythia-delphes:8.310_3.5.0
+  volumes:
+    - ./CMS_data_130_80_semilepto:/home/output
+  command: ["/home/run_simulation.sh"]
+
+x-simulation-environment: &simulation-environment
+
+services:
+ ATLAS_sgn_hadr_full100k:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "ATLAS_sgn_hadr_full100k.dat"
+
+ATLAS_sgn_lepto_full_100k:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "ATLAS_sgn_lepto_full_100k.dat"
+
+ATLAS_sgn_lepto_semi_100k_130-85:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "ATLAS_sgn_lepto_semi_100k_130-85.dat"
+
+ATLAS_sgn_lepto_semi_100k_136-70:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "ATLAS_sgn_lepto_semi_100k_136-70.dat"
+
+ATLAS_sgn_lepto_semi_100k_136-85:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "ATLAS_sgn_lepto_semi_100k_136-85.dat"
+
+ATLAS_sgn_lepto_semi_100k:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "ATLAS_sgn_lepto_semi_100k.dat"
+
+CMS_sgn_hadr_full100k:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "CMS_sgn_hadr_full100k.dat"
+
+CMS_sgn_lepto_full100k:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "CMS_sgn_lepto_full100k.dat"
+
+CMS_sgn_lepto_semi100k_130-70:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "CMS_sgn_lepto_semi100k_130-70.dat"
+
+CMS_sgn_lepto_semi100k_130-85:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "CMS_sgn_lepto_semi100k_130-85.dat"
+
+CMS_sgn_lepto_semi100k_136-70:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "CMS_sgn_lepto_semi100k_136-70.dat"
+
+CMS_sgn_lepto_semi100k_136-85:
+    <<: *simulation-defaults
+    environment:
+    <<: *simulation-environment
+    CARD: "CMS_sgn_lepto_semi100k_136-85.dat"

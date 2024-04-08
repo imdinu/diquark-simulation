@@ -27,6 +27,23 @@ ENV PYTHIA8="/home/pythia8310"
 WORKDIR /home/Delphes-3.5.0
 RUN source /home/root/bin/thisroot.sh && make -j 8 HAS_PYTHIA8=true PYTHIA8_INCLUDE=${PYTHIA8}/include PYTHIA8_LIBRARY=${PYTHIA8}/lib
 
+# Install MadGraph 5
+WORKDIR /home
+RUN wget https://launchpad.net/mg5amcnlo/3.0/3.3.x/+download/MG5_aMC_v3.3.2.tar.gz && \
+    tar -xzf MG5_aMC_v3.3.2.tar.gz && \
+    rm MG5_aMC_v${MG_VERSION}.tar.gz && \
+    ./MG5_aMC_v3.3.2/bin/mg5_aMC << EOF
+    install pythia8
+    install Delphes
+    install maddm
+    install lhapdf6
+    install hepmc
+    install ExRootAnalysis
+    install MadAnalysis5
+    install mg5amc_py8_interface
+    exit
+EOF
+
 
 # Runtime Image
 FROM almalinux:9 as runtime
@@ -39,6 +56,9 @@ COPY --from=builder /home/pythia8310 /home/pythia8310
 
 # Copy ROOT
 COPY --from=builder /home/root /home/root
+
+# Copy MadGraph 5
+COPY --from=builder /home/MG5_aMC_v3.3.2 /home/MG5_aMC_v3.3.2
 
 # Set environment variables for runtime
 ENV PYTHIA8="/home/pythia8310"

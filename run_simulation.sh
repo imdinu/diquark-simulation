@@ -10,6 +10,9 @@ sed -i "s/Main:numberOfEvents = .*/Main:numberOfEvents = ${NUMBER_OF_EVENTS}/" /
 sed -i "s/Beams:eCM = .*/Beams:eCM = ${ECM}./" /home/cards/${CARD}
 sed -i "s/PhaseSpace:mHatMin = .*/PhaseSpace:mHatMin = ${MHATMIN}/" /home/cards/${CARD}
 
+# Run MadGraph simulation
+./MG5_aMC_v3.3.2/bin/mg5_aMC /home/cards/${CARD} output/${CARD}.root
+
 # Run the simulation
 # I want the output name to containe the card mhat and number of events
 ./Delphes-3.5.0/DelphesPythia8 ./Delphes-3.5.0/cards/delphes_card_CMS.tcl /home/cards/${CARD} output/${CARD}_${ECM}_${MHATMIN}.root
