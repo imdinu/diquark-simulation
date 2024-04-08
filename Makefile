@@ -23,10 +23,6 @@ pull:
 	docker pull ${USER_NAME}/$(IMAGE_NAME):$(IMAGE_TAG)
 .PHONY: pull
 
-# Run the full simulation
-run: build
-	docker compose up
-.PHONY: run
 
 # Clean containers but keep images and volumes
 clean:

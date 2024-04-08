@@ -12,4 +12,4 @@ sed -i "s/PhaseSpace:mHatMin = .*/PhaseSpace:mHatMin = ${MHATMIN}/" /home/cards/
 
 # Run the simulation
 # I want the output name to containe the card mhat and number of events
-./Delphes-3.5.0/DelphesPythia8 ./Delphes-3.5.0/cards/delphes_card_ATLAS.tcl /home/cards/${CARD} output/${CARD}_${ECM}_${MHATMIN}.root
+./Delphes-3.5.0/DelphesPythia8 ./Delphes-3.5.0/cards/delphes_card_CMS.tcl /home/cards/${CARD} output/${CARD}_${ECM}_${MHATMIN}.root

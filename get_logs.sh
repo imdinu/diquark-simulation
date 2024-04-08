@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_DIR="ATLAS_logs_130_80"
+LOG_DIR="CMS_logs_130_80_semilepto"
 
 mkdir $LOG_DIR
 
