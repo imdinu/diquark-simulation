@@ -29,20 +29,10 @@ RUN source /home/root/bin/thisroot.sh && make -j 8 HAS_PYTHIA8=true PYTHIA8_INCL
 
 # Install MadGraph 5
 WORKDIR /home
+COPY mg_setup.txt /home/
 RUN wget https://launchpad.net/mg5amcnlo/3.0/3.3.x/+download/MG5_aMC_v3.3.2.tar.gz && \
     tar -xzf MG5_aMC_v3.3.2.tar.gz && \
-    rm MG5_aMC_v${MG_VERSION}.tar.gz && \
-    ./MG5_aMC_v3.3.2/bin/mg5_aMC << EOF
-    install pythia8
-    install Delphes
-    install maddm
-    install lhapdf6
-    install hepmc
-    install ExRootAnalysis
-    install MadAnalysis5
-    install mg5amc_py8_interface
-    exit
-EOF
+    rm -f MG5_aMC_v3.3.2.tar.gz 
 
 
 # Runtime Image
@@ -58,16 +48,17 @@ COPY --from=builder /home/pythia8310 /home/pythia8310
 COPY --from=builder /home/root /home/root
 
 # Copy MadGraph 5
-COPY --from=builder /home/MG5_aMC_v3.3.2 /home/MG5_aMC_v3.3.2
+COPY --from=builder /home/MG5_aMC_v3_3_2 /home/MG5_aMC_v3_3_2
 
 # Set environment variables for runtime
 ENV PYTHIA8="/home/pythia8310"
 ENV LD_LIBRARY_PATH="/home/root/lib:/home/pythia8310/lib:${LD_LIBRARY_PATH}"
 
 WORKDIR /home
-COPY cards /home/cards
+# COPY cards /home/cards
 COPY run_simulation.sh /home/run_simulation.sh
 RUN chmod +x /home/run_simulation.sh
 RUN mkdir  -p /home/output
-CMD run_simulation.sh | tee output/01_gg_bbar.log
+CMD bash
+# CMD run_simulation.sh | tee output/01_gg_bbar.log
 

@@ -23,3 +23,15 @@ Use the [docker-compose.yml](./docker-compose.yml) file to configure the simulat
 ```bash
 $ docker compose up
 ```
+
+# Dev instructions
+
+```sh
+docker image ls # get the IMAGE ID of pythia-delphes:8.310_3.5.0
+docker run -it {image_id}
+# try a bunch of stuff
+# if it works put it in Dockerfile
+make clean
+make build
+# start over
+```
